@@ -57,9 +57,18 @@
                       {{$posts->links() }}
                     </div>
                     <a class="btn btn-primary m-1" href="{{ route('admin.posts.create')}}">Create</a>
+
+                    <div class="m-5">
+                      @foreach($categories as $category)
+                          <h4>{{$category->name}}</h4>
+                          <ul>
+                            @foreach ($category->posts as $post)
+                            <li>{{$post->title}}</li>
+                            @endforeach
+                          </ul>
+                      @endforeach
+                    </div>
                     
-        
-              
         </div>
     </div>
 </div>
