@@ -23,25 +23,32 @@
                         <h5>
                           {{$post->title}}
                         </h5>
-                        <p>
+                        <p class="my-3">
                           {{$post->content}}
                         </p>
-                        <div class="text-right"> 
-                          <a class="btn btn-primary m-1" href="{{ route('admin.posts.show', $post)}}">Show</a>
-                          <a class="btn btn-primary m-1" href="{{ route('admin.posts.edit', $post)}}">Edit</a>
-                          <form 
-                          class="d-inline"
-                          action="{{ route('admin.posts.destroy', $post)}}" 
-                          method="POST"
-                          onsubmit="return confirm('Sicuro di vole eliminare?')">
-                          @csrf
-            
-                          @method('DELETE')
-            
-                            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-trash"></i></button>
-                          </form>
-                          
+                        <div class="d-flex justify-content-between">
+                          <span>
+                            Categoria: {{ $post->category ? $post->category->name : '-'}}
+                          </span>
+                          <div> 
+                            <a class="btn btn-primary m-1" href="{{ route('admin.posts.show', $post)}}">Show</a>
+                            <a class="btn btn-primary m-1" href="{{ route('admin.posts.edit', $post)}}">Edit</a>
+                            <form 
+                            class="d-inline"
+                            action="{{ route('admin.posts.destroy', $post)}}" 
+                            method="POST"
+                            onsubmit="return confirm('Sicuro di vole eliminare?')">
+                            @csrf
+              
+                            @method('DELETE')
+              
+                              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                            
+                          </div>
+
                         </div>
+                        
                       </div>
                     </div>
                       

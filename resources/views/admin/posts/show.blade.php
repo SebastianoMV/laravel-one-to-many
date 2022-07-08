@@ -13,6 +13,9 @@
               <p>
                 {{$post->content}}
               </p>
+              <p>
+                Categoria: {{ $post->category ? $post->category->name : '-'}}
+              </p>
               <div class="text-right"> 
                 <a class="btn btn-primary m-1" href="{{ route('admin.posts.index')}}">Back</a>
               </div>
