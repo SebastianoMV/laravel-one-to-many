@@ -82,7 +82,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
         $data = $request->all();
         $data['slug'] = Post::newSlug($data['title']);
